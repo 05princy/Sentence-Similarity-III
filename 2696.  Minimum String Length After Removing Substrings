@@ -1,0 +1,14 @@
+#2696.  Minimum String Length After Removing Substrings
+#time complexity :- O(n)
+class Solution:
+    def minLength(self, s: str) -> int:
+        stack=[]
+        for CurrChar in s:
+            #stack[-1] is the top elememt and CurrChar is the just below element of stack
+            if stack and((stack[-1]=='A' and CurrChar=='B') or (stack[-1]=='C' and CurrChar=='D')):
+                stack.pop()
+            else:
+                stack.append(CurrChar)
+        return len(stack)
+
+
